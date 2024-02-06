@@ -90,3 +90,5 @@ require (
 	google.golang.org/protobuf v1.31.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
+
+replace github.com/iotaledger/iota.go/v3 v3.0.0-rc.3 => ./iota.go
