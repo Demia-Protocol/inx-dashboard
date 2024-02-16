@@ -36,6 +36,9 @@ const (
 	// ParameterOutputID is used to identify an output by its ID.
 	ParameterOutputID = "outputID"
 
+	// ParameterTagID is used to identify a Block by its TagID.
+	ParameterTagID = "tagID"
+
 	// ParameterMilestoneIndex is used to identify a milestone by index.
 	ParameterMilestoneIndex = "milestoneIndex"
 
@@ -86,6 +89,12 @@ const (
 	// MIMEApplicationJSON => json
 	// MIMEVendorIOTASerializer => bytes.
 	RouteCoreOutput = CoreAPIRoute + "/outputs/:" + ParameterOutputID
+
+	// RouteCoreTagged is the route for getting an output by its tagID.
+	// GET returns the outputs based on the given type in the request "Accept" header.
+	// MIMEApplicationJSON => json
+	// MIMEVendorIOTASerializer => bytes.
+	RouteCoreTagged = CoreAPIRoute + "/tagged/:" + ParameterTagID
 
 	// RouteCorePeer is the route for getting peers by their peerID.
 	// GET returns the peer
@@ -234,6 +243,10 @@ func (d *Dashboard) setupAPIRoutes(routeGroup *echo.Group) {
 	})
 
 	routeGroup.GET(RouteCoreOutput, func(c echo.Context) error {
+		return d.forwardRequest(c)
+	})
+
+	routeGroup.GET(RouteCoreTagged, func(c echo.Context) error {
 		return d.forwardRequest(c)
 	})
 
