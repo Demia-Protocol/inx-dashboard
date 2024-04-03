@@ -12,7 +12,8 @@ WORKDIR /scratch
 RUN mkdir /app
 
 # Copy everything from the current directory to the PWD(Present Working Directory) inside the container
-COPY . .
+COPY ./inx-dashboard .
+COPY ./demia.go ../demia.go
 
 # Download go modules
 RUN go mod download
@@ -22,7 +23,7 @@ RUN go mod verify
 RUN go build -o /app/inx-dashboard -a
 
 # Copy the assets
-COPY ./config_defaults.json /app/config.json
+COPY inx-dashboard/config_defaults.json /app/config.json
 
 ############################
 # Image
