@@ -74,6 +74,7 @@ func (d *Dashboard) apiMiddlewares() []echo.MiddlewareFunc {
 		"/api/core/v2/transactions*",
 		"/api/core/v2/milestones*",
 		"/api/core/v2/outputs*",
+		"/api/core/v2/tagged*",
 		"/api/indexer/v1/*",
 	}
 
