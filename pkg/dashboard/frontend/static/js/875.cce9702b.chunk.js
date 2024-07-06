@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunknode_dashboard=self.webpackChunknode_dashboard||[]).push([[875],{9875:function(e,s,a){e.exports=a.p+"static/media/banner.98cf0ccb865f0924dc80.svg"}}]);
